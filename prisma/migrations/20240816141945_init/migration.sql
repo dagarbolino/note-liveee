@@ -63,6 +63,20 @@ CREATE TABLE "Authenticator" (
 );
 
 -- CreateTable
+CREATE TABLE "Subscription" (
+    "stripSubscriptionId" TEXT NOT NULL PRIMARY KEY,
+    "interval" TEXT NOT NULL,
+    "status" TEXT NOT NULL,
+    "planId" TEXT NOT NULL,
+    "currentPeriodStart" INTEGER NOT NULL,
+    "curretPeriodEnd" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "userId" TEXT NOT NULL,
+    CONSTRAINT "Subscription_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
 CREATE TABLE "Notes" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
@@ -75,17 +89,29 @@ CREATE TABLE "Notes" (
 );
 
 -- CreateTable
-CREATE TABLE "Subscription" (
-    "stripSubscriptionId" TEXT NOT NULL PRIMARY KEY,
-    "interval" TEXT NOT NULL,
-    "status" TEXT NOT NULL,
-    "planId" TEXT NOT NULL,
-    "currentPeriodStart" INTEGER NOT NULL,
-    "curretPeriodEnd" INTEGER NOT NULL,
+CREATE TABLE "Curriculums" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "completed" BOOLEAN NOT NULL DEFAULT false,
+    "userId" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
-    "userId" TEXT NOT NULL,
-    CONSTRAINT "Subscription_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Curriculums_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Contact_details" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "last_name" TEXT NOT NULL,
+    "first_name" TEXT NOT NULL,
+    "postTitle" TEXT NOT NULL,
+    "photoUrl" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "linkedin" TEXT NOT NULL,
+    "phone" INTEGER NOT NULL,
+    "curriculumsId" TEXT NOT NULL,
+    CONSTRAINT "Contact_details_curriculumsId_fkey" FOREIGN KEY ("curriculumsId") REFERENCES "Curriculums" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex
@@ -107,10 +133,19 @@ CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationTok
 CREATE UNIQUE INDEX "Authenticator_credentialID_key" ON "Authenticator"("credentialID");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Notes_id_key" ON "Notes"("id");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Subscription_stripSubscriptionId_key" ON "Subscription"("stripSubscriptionId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Subscription_userId_key" ON "Subscription"("userId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Notes_id_key" ON "Notes"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Curriculums_id_key" ON "Curriculums"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Contact_details_id_key" ON "Contact_details"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Contact_details_curriculumsId_key" ON "Contact_details"("curriculumsId");

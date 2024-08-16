@@ -61,7 +61,7 @@ export default async function PageNote({params}: UpdatePageProps) {
         Modifier une note
         </Button>
       </CardFooter>
- 
+
     </form>
   </Card>
   )

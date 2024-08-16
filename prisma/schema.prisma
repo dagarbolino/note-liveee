@@ -24,6 +24,8 @@ model User {
 
   Notes Notes[]
   subscription Subscription[]
+
+  Curriculums Curriculums[]
 }
  
 model Account {
@@ -84,17 +86,6 @@ model Authenticator {
 }
 
 
-model Notes {
-  id String @id @unique @default(cuid())
-  title String
-  description String
-  completed Boolean @default(false)
-  userId String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user User @relation(fields:[userId], references: [id], onDelete: Cascade)
-}
 
 model Subscription {
   stripSubscriptionId String @id @unique
@@ -109,3 +100,49 @@ model Subscription {
 
   user User @relation(fields: [userId], references: [id])
 }
+
+
+model Notes {
+  id String @id @unique @default(cuid())
+  title String
+  description String
+  completed Boolean @default(false)
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields:[userId], references: [id], onDelete: Cascade)
+}
+
+
+model Curriculums {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  completed   Boolean   @default(false)
+  userId      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  contact_details Contact_details?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Contact_details {
+  id           String  @id @default(cuid())
+  last_name    String
+  first_name   String
+  postTitle    String   
+  photoUrl     String?
+  email        String  @unique
+  linkedin     String?
+  phone        String  
+  curriculumsId String @unique
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id])
+}
+
+
