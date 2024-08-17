@@ -12,7 +12,12 @@ import {
 import ButtonHooby from "./curriculums/ButtonHooby"
 import ButtonContact from "./curriculums/ButtonContact"
 
-export default function SheetCurriculum() {
+
+interface SheetCurriculumProps {
+  curriculumId: string;
+}
+
+export default function SheetCurriculum({ curriculumId }: SheetCurriculumProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClose = () => setIsOpen(false)
@@ -22,14 +27,14 @@ export default function SheetCurriculum() {
       <SheetTrigger onClick={() => setIsOpen(true)}>Add features</SheetTrigger>
       <SheetContent className="w-[400px] sm:w-[540px]">
         <SheetHeader>
-          <SheetTitle>Ajouter des fonctionnalités</SheetTitle>
+          <SheetTitle>Liste des fonctionnalités</SheetTitle>
           <SheetDescription>
-            Choisissez les éléments à ajouter à votre curriculum.
+            Choisissez les éléments pour mettre à jour à votre curriculum.
           </SheetDescription>
         </SheetHeader>
-        <div className="mt-4">
-          <ButtonContact onClose={handleClose} />
-          <ButtonHooby onClose={handleClose} />
+        <div className="mt-4 flex flex-col">
+        <ButtonContact onClose={handleClose} curriculumId={curriculumId} />
+        <ButtonHooby onClose={handleClose} />
         </div>
       </SheetContent>
     </Sheet>

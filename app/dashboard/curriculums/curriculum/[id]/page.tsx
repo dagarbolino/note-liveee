@@ -1,4 +1,4 @@
-import SheetContact from "@/app/components/SheetContact"
+import SheetCurriculum from "@/app/components/SheetCurriculum"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -23,7 +23,7 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
   return (
     <>
       <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
-      <SheetContact />
+        <SheetCurriculum curriculumId={params.id} />
       </div>
 
 
