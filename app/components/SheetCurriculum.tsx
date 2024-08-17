@@ -34,7 +34,7 @@ export default function SheetCurriculum({ curriculumId }: SheetCurriculumProps) 
         </SheetHeader>
         <div className="mt-4 flex flex-col">
         <ButtonContact onClose={handleClose} curriculumId={curriculumId} />
-        <ButtonHooby onClose={handleClose} />
+        <ButtonHooby onClose={handleClose} curriculumId={curriculumId} />
         </div>
       </SheetContent>
     </Sheet>

@@ -116,15 +116,16 @@ model Notes {
 
 
 model Curriculums {
-  id          String    @id @default(cuid())
-  title       String
+  id String @id @default(cuid())
+  title String
   description String
-  completed   Boolean   @default(false)
-  userId      String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  
+  completed Boolean @default(false)
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   contact_details Contact_details?
+  hobbies Hobby[]
+  skills Skill[]
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -132,15 +133,31 @@ model Curriculums {
 }
 
 model Contact_details {
-  id           String  @id @default(cuid())
-  last_name    String
-  first_name   String
-  postTitle    String   
-  photoUrl     String?
-  email        String  @unique
-  linkedin     String?
-  phone        String  
+  id String @id @default(cuid())
+  last_name String
+  first_name String
+  postTitle String
+  photoUrl String?
+  email String @unique
+  linkedin String?
+  phone String
   curriculumsId String @unique
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+}
+
+model Hobby {
+  id String @id @default(cuid())
+  name String
+  curriculumsId String
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+}
+
+model Skill {
+  id String @id @default(cuid())
+  name String
+  curriculumsId String
 
   curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
 }

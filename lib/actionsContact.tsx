@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/db"
-import { getUser } from "./actionsUsers"
 import { revalidatePath } from "next/cache"
 
 // Récupérer tous les curriculums pour un utilisateur donné
