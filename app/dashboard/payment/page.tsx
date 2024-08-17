@@ -69,7 +69,7 @@ export default async function PagePayment() {
                 </li>
               ))}
             </ul>
-            <form action={createSubscription} className="w-full mt-4">
+            <form action="" className="w-full mt-4">
               <Button className='bg-orange-500 hover:bg-orange-600 text-white'>Devenir membre Premium</Button>
             </form>
           </div>
