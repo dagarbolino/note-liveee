@@ -1,4 +1,3 @@
-import DrawerContact from "@/app/components/DrawerContact"
 import SheetContact from "@/app/components/SheetContact"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -27,10 +26,6 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
       <SheetContact />
       </div>
 
-      <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
-      <DrawerContact />
-      </div>
-
 
       <Card>
         <form action={updateCurriculum}>
@@ -53,40 +48,6 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
               <Textarea defaultValue={curriculum?.description || ''} name="description" id="description" required />
             </div>
 
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="last_name">Nom</Label>
-              <Input defaultValue={curriculum?.contact_details?.last_name || ''} type="text" name="last_name" id="last_name" required />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="first_name">Prénom</Label>
-              <Input defaultValue={curriculum?.contact_details?.first_name || ''} type="text" name="first_name" id="first_name" required />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="postTitle">Titre du poste</Label>
-              <Input defaultValue={curriculum?.contact_details?.postTitle || ''} type="text" name="postTitle" id="postTitle" required />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="email">Email</Label>
-              <Input defaultValue={curriculum?.contact_details?.email || ''} type="email" name="email" id="email" required />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="phone">Téléphone</Label>
-              <Input defaultValue={curriculum?.contact_details?.phone || ''} type="tel" name="phone" id="phone" required />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="linkedin">LinkedIn</Label>
-              <Input defaultValue={curriculum?.contact_details?.linkedin || ''} type="url" name="linkedin" id="linkedin" />
-            </div>
-
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="photoUrl">Photo URL</Label>
-              <Input defaultValue={curriculum?.contact_details?.photoUrl || ''} type="url" name="photoUrl" id="photoUrl" />
-            </div>
 
             <div className="gap-y-2 flex flex-col w-60">
               <Label htmlFor="completed">En attente || Complet</Label>

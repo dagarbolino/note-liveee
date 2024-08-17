@@ -142,7 +142,7 @@ model Contact_details {
   phone        String  
   curriculumsId String @unique
 
-  curriculums Curriculums @relation(fields: [curriculumsId], references: [id])
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
 }
 
 

@@ -5,7 +5,7 @@ if (!process.env.STRIPE_KEY_SECRET) {
   throw new Error("La clé API Stripe n'est pas définie dans les variables d'environnement");
 }
 
-console.log("Clé API Stripe:", process.env.STRIPE_KEY_SECRET); // Vérifiez que la clé API est bien chargée
+// console.log("Clé API Stripe:", process.env.STRIPE_KEY_SECRET); // Vérifiez que la clé API est bien chargée
 
 export const stripe = new Stripe(process.env.STRIPE_KEY_SECRET as string, {
   apiVersion: '2024-06-20',

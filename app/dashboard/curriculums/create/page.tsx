@@ -26,20 +26,6 @@ export default function CreatePage() {
             <Textarea name="description" id="description" required placeholder="Description de votre curriculum" />
           </div>
 
-          <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="nom">Nom</Label>
-            <Input type="text" name="nom" id="nom" required placeholder="Votre nom" />
-          </div>
-
-          <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="email">Email</Label>
-            <Input type="email" name="email" id="email" required placeholder="Votre email" />
-          </div>
-
-          <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="photo">Photo</Label>
-            <Input type="file" name="photo" id="photo" accept="image/*" />
-          </div>
 
           <div className="gap-y-2 flex flex-col">
             <Label htmlFor="completed">En attente || Complet</Label>
