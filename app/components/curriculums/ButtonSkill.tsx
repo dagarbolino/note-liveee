@@ -1,21 +1,21 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-interface ButtonHoobyProps {
+interface ButtonSkillProps {
   onClose: () => void;
   curriculumId: string;
 }
 
-const ButtonHooby: React.FC<ButtonHoobyProps> = ({ onClose, curriculumId }) => {
+const ButtonSkill: React.FC<ButtonSkillProps> = ({ onClose, curriculumId }) => {
   return (
     <Button className="bg-orange-500 hover:bg-orange-600 text-white mt-4"
       onClick={onClose}
     >
-      <Link href={`/dashboard/curriculums/curriculum/${curriculumId}/hobbies`}>
-        Liste des hobbies
+      <Link href={`/dashboard/curriculums/curriculum/${curriculumId}/skills`}>
+        Liste des skills
       </Link>
     </Button>
   )
 }
 
-export default ButtonHooby
+export default ButtonSkill

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from 'react'
 import {
   Sheet,
   SheetContent,
@@ -9,8 +8,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import ButtonHooby from "./curriculums/ButtonHooby"
+import { useState } from 'react'
 import ButtonContact from "./curriculums/ButtonContact"
+import ButtonHooby from "./curriculums/ButtonHooby"
+import ButtonSkill from "./curriculums/ButtonSkill"
 
 
 interface SheetCurriculumProps {
@@ -33,8 +34,9 @@ export default function SheetCurriculum({ curriculumId }: SheetCurriculumProps) 
           </SheetDescription>
         </SheetHeader>
         <div className="mt-4 flex flex-col">
-        <ButtonContact onClose={handleClose} curriculumId={curriculumId} />
-        <ButtonHooby onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonContact onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonHooby onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonSkill onClose={handleClose} curriculumId={curriculumId} />
         </div>
       </SheetContent>
     </Sheet>

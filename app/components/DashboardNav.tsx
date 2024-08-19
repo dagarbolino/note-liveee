@@ -1,6 +1,6 @@
 "use client"
 
-import { CreditCard, Notebook, Settings } from 'lucide-react';
+import { CreditCard, Notebook, Settings, StickyNote } from 'lucide-react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,8 +11,8 @@ export default function DashboardNav() {
   const pathname = usePathname()
 
   const menuDashboard = [
-    { name: "Curriculums", icon: Notebook, path: "/dashboard/curriculums" },
     { name: "Notes", icon: Notebook, path: "/dashboard/notes" },
+    { name: "Curriculums", icon: StickyNote, path: "/dashboard/curriculums" },
     { name: "Settings", icon: Settings, path: "/dashboard/settings" },
     { name: "Paiement", icon: CreditCard, path: "/dashboard/payment" },
   ]
@@ -25,7 +25,7 @@ export default function DashboardNav() {
         const isActive = pathname.startsWith(link.path);
         return (
           <Link href={link.path} key={index}>
-            <div className={`flex items-center justify-center lg:justify-center gap-2
+            <div className={`flex items-center justify-center lg:justify-between gap-2
               cursor-pointer lg:p-2 hover:bg-orange-500 hover:bg-opacity-50
             hover:text-white text-sm font-bold rounded-md 
               ${isActive && "bg-orange-500 text-white"}`}>
