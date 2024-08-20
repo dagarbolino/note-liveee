@@ -1,4 +1,7 @@
+import { Previews } from "@/app/components/Preview"
 import SheetCurriculum from "@/app/components/SheetCurriculum"
+import SheetLayout from "@/app/components/SheetLayout"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -7,6 +10,7 @@ import { Label } from "@/components/ui/label"
 
 import { Textarea } from "@/components/ui/textarea"
 import { getCurriculum, updateCurriculum } from "@/lib/actionsCurriculums"
+
 import Link from "next/link"
 
 interface Params {
@@ -22,11 +26,29 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
 
   return (
     <>
-      <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
-        <SheetCurriculum curriculumId={params.id} />
+      <div className="flex flex-row justify-between gap-y-5 w-full">
+
+        <div className="">
+          <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
+            <SheetCurriculum curriculumId={params.id} />
+          </div>
+          <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
+            <SheetLayout />
+          </div>
+        </div>
+
+
+
+        <div className="">
+          <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
+            <Previews curriculumId={params.id} />
+          </div>
+          <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
+            <Button variant="outline">Download PDF</Button>
+          </div>
+
+        </div>
       </div>
-
-
       <Card>
         <form action={updateCurriculum}>
           <Input type="hidden" name="id" value={curriculum?.id || ''} />

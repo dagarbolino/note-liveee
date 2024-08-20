@@ -10,12 +10,12 @@ import {
 } from "@/components/ui/sheet"
 import { useState } from 'react'
 import ButtonContact from "./curriculums/ButtonContact"
-import ButtonHooby from "./curriculums/ButtonHooby"
-import ButtonSkill from "./curriculums/ButtonSkill"
-import ButtonMotivation from "./curriculums/ButtonMotivation"
-import ButtonLanguage from "./curriculums/ButtonLanguage"
 import ButtonExperience from "./curriculums/ButtonExperience"
 import ButtonFormation from "./curriculums/ButtonFormation"
+import ButtonHooby from "./curriculums/ButtonHooby"
+import ButtonLanguage from "./curriculums/ButtonLanguage"
+import ButtonMotivation from "./curriculums/ButtonMotivation"
+import ButtonSkill from "./curriculums/ButtonSkill"
 
 
 interface SheetCurriculumProps {
@@ -29,7 +29,9 @@ export default function SheetCurriculum({ curriculumId }: SheetCurriculumProps) 
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger onClick={() => setIsOpen(true)}>Add features</SheetTrigger>
+      <SheetTrigger
+        className="border rounded-lg py-2 px-4 text-sm hover:bg-gray-800 transition duration-200 cursor-pointer"
+        onClick={() => setIsOpen(true)}>Add features</SheetTrigger>
       <SheetContent className="w-[400px] sm:w-[540px]">
         <SheetHeader>
           <SheetTitle>Liste des fonctionnalités</SheetTitle>
