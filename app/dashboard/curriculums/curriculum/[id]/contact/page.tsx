@@ -14,13 +14,11 @@ export default async function PageContact({ params }: PageProps) {
 
   return (
     <>
-
       <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
         <SheetCurriculum curriculumId={curriculumId} />
       </div>
 
       <Card>
-
 
         <CardHeader>
           <CardTitle>Détails de contact </CardTitle>

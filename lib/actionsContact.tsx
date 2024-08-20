@@ -21,9 +21,6 @@ export const getAllCurriculums = async (userId: string) => {
 }
 
 
-
-
-
 export const createContact = async (formData: FormData) => {
   const curriculumId = formData.get('curriculumId') as string
   const last_name = formData.get('last_name') as string
@@ -54,7 +51,6 @@ export const createContact = async (formData: FormData) => {
 
 
 
-
 // Supprimer un curriculum
 export const deleteContact = async (formData: FormData) => {
   const id = formData.get('id') as string
@@ -65,8 +61,6 @@ export const deleteContact = async (formData: FormData) => {
 
   revalidatePath('/dashboard/curriculums')
 }
-
-
 
 
 export const getContact = async (id: string) => {
@@ -80,7 +74,6 @@ export const getContact = async (id: string) => {
 }
 
 
-
 export const getCurriculum = async (id: string) => {
   if (!id) {
     throw new Error("ID du curriculum non fourni");
@@ -90,11 +83,6 @@ export const getCurriculum = async (id: string) => {
     include: { contact_details: true }
   });
 }
-
-
-
-
-
 
 
 

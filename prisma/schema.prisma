@@ -26,6 +26,7 @@ model User {
   subscription Subscription[]
 
   Curriculums Curriculums[]
+
 }
  
 model Account {
@@ -124,8 +125,12 @@ model Curriculums {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contact_details Contact_details?
+  Motivation Motivation[]
   hobbies Hobby[]
   skills Skill[]
+  experiences Experience[]
+  formation Formation[]
+  languages Language[]
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -149,7 +154,7 @@ model Contact_details {
 model Hobby {
   id String @id @default(cuid())
   name String
-  curriculumsId String
+  curriculumsId String 
 
   curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
 }
@@ -157,9 +162,56 @@ model Hobby {
 model Skill {
   id String @id @default(cuid())
   name String
-  curriculumsId String
+  curriculumsId String 
 
   curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
 }
 
 
+model Experience {
+  id String @id @default(cuid())
+  title String
+  description String
+  business String
+  startDate DateTime
+  endDate DateTime
+  location String
+  curriculumsId String 
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+}
+
+model Formation {
+  id String @id @default(cuid())
+  title String
+  description String
+  business String
+  startDate DateTime
+  endDate DateTime
+  location String
+  curriculumsId String 
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+}
+
+
+model Language {
+  id            String     @id @default(cuid())
+  name          String
+  rating        Int        @default(1)
+  curriculumsId String 
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+
+  @@index([curriculumsId])
+}
+
+
+model Motivation {
+  id String @id @default(cuid())
+  text_motivation String
+
+  curriculumsId String
+
+  curriculums Curriculums @relation(fields: [curriculumsId], references: [id], onDelete: Cascade)
+}

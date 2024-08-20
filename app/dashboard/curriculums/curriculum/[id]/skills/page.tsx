@@ -18,8 +18,6 @@ export default async function CreateSkills({ params }: { params: { id: string } 
         <SheetCurriculum curriculumId={params.id} />
       </div>
 
-
-
       <div className="flex flex-row items-center justify-between gap-y-5">
         <h1 className='text-2xl'>Créer un nouveau skill</h1>
         <Button type="button" className="bg-blue-500 hover:bg-blue-600 text-white mt-4">
@@ -32,7 +30,6 @@ export default async function CreateSkills({ params }: { params: { id: string } 
         <Input type="text" name="name" placeholder="Enter skill name" required />
         <Button className='mt-5' type="submit">Ajouter un skill</Button>
       </form>
-
       <div className="border my-4"></div>
 
       {/* Liste des skills existants */}
@@ -53,8 +50,6 @@ export default async function CreateSkills({ params }: { params: { id: string } 
           </li>
         ))}
       </ul>
-
-
     </div>
   )
 }

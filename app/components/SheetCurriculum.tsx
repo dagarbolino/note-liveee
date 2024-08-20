@@ -12,6 +12,10 @@ import { useState } from 'react'
 import ButtonContact from "./curriculums/ButtonContact"
 import ButtonHooby from "./curriculums/ButtonHooby"
 import ButtonSkill from "./curriculums/ButtonSkill"
+import ButtonMotivation from "./curriculums/ButtonMotivation"
+import ButtonLanguage from "./curriculums/ButtonLanguage"
+import ButtonExperience from "./curriculums/ButtonExperience"
+import ButtonFormation from "./curriculums/ButtonFormation"
 
 
 interface SheetCurriculumProps {
@@ -35,8 +39,12 @@ export default function SheetCurriculum({ curriculumId }: SheetCurriculumProps) 
         </SheetHeader>
         <div className="mt-4 flex flex-col">
           <ButtonContact onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonMotivation onClose={handleClose} curriculumId={curriculumId} />
           <ButtonHooby onClose={handleClose} curriculumId={curriculumId} />
           <ButtonSkill onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonLanguage onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonExperience onClose={handleClose} curriculumId={curriculumId} />
+          <ButtonFormation onClose={handleClose} curriculumId={curriculumId} />
         </div>
       </SheetContent>
     </Sheet>

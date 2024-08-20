@@ -12,11 +12,9 @@ export default async function CreateHobbies({ params }: { params: { id: string }
   return (
     <div className='flex flex-col gap-y-5'>
 
-
-<div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
+      <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
         <SheetCurriculum curriculumId={params.id} />
       </div>
-
 
       <div className="flex flex-row items-center justify-between gap-y-5">
         <h1 className='text-2xl'>Créer un nouveau hobbie</h1>
@@ -27,6 +25,7 @@ export default async function CreateHobbies({ params }: { params: { id: string }
       <form action={addHobby}>
         <Input type="hidden" name="curriculumId" value={curriculumId} />
         <Input type="text" name="name" placeholder="Enter hobby name" required />
+
         <Button className='mt-5' type="submit">Ajouter un hobbie</Button>
       </form>
 
@@ -50,8 +49,6 @@ export default async function CreateHobbies({ params }: { params: { id: string }
           </li>
         ))}
       </ul>
-
-
     </div>
   )
 }
