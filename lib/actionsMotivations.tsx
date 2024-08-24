@@ -13,10 +13,8 @@ export const addMotivation = async (formData: FormData) => {
   const curriculumId = formData.get('curriculumId') as string
   const text_motivation = formData.get('text_motivation') as string
 
-  await prisma.motivation.upsert({
-    where: { curriculumsId: curriculumId },
-    update: { text_motivation },
-    create: {
+  await prisma.motivation.create({
+    data: {
       text_motivation,
       curriculums: { connect: { id: curriculumId } }
     }

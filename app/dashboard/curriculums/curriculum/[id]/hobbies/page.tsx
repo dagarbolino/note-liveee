@@ -21,6 +21,7 @@ export default async function CreateHobbies({ params }: { params: { id: string }
         <Button type="button" className="bg-blue-500 hover:bg-blue-600 text-white mt-4">
           <Link href={`/dashboard/curriculums/curriculum/${curriculumId}`}>Retour au curriculum</Link>
         </Button>
+        
       </div>
       <form action={addHobby}>
         <Input type="hidden" name="curriculumId" value={curriculumId} />
