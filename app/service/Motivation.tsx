@@ -7,7 +7,7 @@ export default async function Motivation({ curriculumId }: { curriculumId: strin
 
   return (
     <section className="p-4 w-auto">
-      <div className="p-4 border border-gray-300 rounded-md">
+      <div className="p-4 border-2 border-gray-300 rounded-md">
         {Motivations.length === 0 ? (
           <p className="text-sm">Aucune motivation ajouté pour le moment.</p>
         ) : (

@@ -13,7 +13,7 @@ export default async function ListFormation({ curriculumId }: { curriculumId: st
       ) : (
         <ul className="p-2">
           {formations.map((formation: { id: string; title: string; description: string; business: string; startDate: Date; endDate: Date; location: string; }) => (
-            <li key={formation.id} className="rounded-md p-2 border-2 border-gray-200  my-2">
+            <li key={formation.id} className="rounded-md p-2 border border-gray-300  my-2">
 
               <div className="flex flex-row justify-start gap-6">
                 <div>
