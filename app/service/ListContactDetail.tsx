@@ -27,10 +27,10 @@ export default async function ListContactDetail({ curriculumId }: { curriculumId
                   className="text-sm flex flex-col w-32 h-36 border rounded-lg object-cover"
                 />
                 <p className="text-sm flex flex-col mt-2 mb-4"><span></span> {contact.postTitle}</p>
-                <p className="text-sm flex flex-col mb-4 font-semibold"><span className="font-light">Email</span> {contact.email}</p>
-                <p className="text-sm flex flex-col mb-4 font-semibold"><span className="font-light">Linkedin</span>{contact.linkedin}</p>
+                <p className="text-sm flex flex-col mb-2 font-semibold"><span className="font-light">Email</span> {contact.email}</p>
+                <p className="text-sm flex flex-col mb-2 font-semibold"><span className="font-light">Linkedin</span>{contact.linkedin}</p>
 
-                <p className="text-sm flex flex-col mb-4"><span className="font-light">Téléphone: </span>{contact.phone}</p>
+                <p className="text-sm flex flex-col mb-4"><span className="font-light">Téléphone </span>{contact.phone}</p>
 
               </div>
             </li>

@@ -9,7 +9,7 @@ export default async function CreateLanguages({ params }: { params: { id: string
   const languages = await getLanguages(curriculumId);
 
   return (
-    <div className='flex flex-col gap-y-5 h-full'>
+    <div className='flex flex-col gap-y-5 h-full max-w-2xl'>
       <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
         <SheetCurriculum curriculumId={params.id} />
       </div>

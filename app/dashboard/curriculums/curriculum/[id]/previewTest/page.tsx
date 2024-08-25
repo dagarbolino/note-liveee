@@ -47,7 +47,7 @@ export default async function PageCurriculums({ params }: { params: { id: string
       </div>
 
 
-      <div id="pdf" className=" max-w-[1024px] border-2 bg-blue-500 border-white p-4 rounded-lg flex flex-col md:flex-row">
+      <div id="pdf" className="border-2 bg-blue-500 border-white p-4 rounded-lg flex flex-col md:flex-row">
 
         <div className="w-1/5">
           <ListContactDetail curriculumId={data[0]?.id} />

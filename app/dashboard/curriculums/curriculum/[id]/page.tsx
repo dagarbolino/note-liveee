@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { getAllCurriculums, getCurriculum, updateCurriculum } from "@/lib/actionsCurriculums"
 import { getUser } from "@/lib/actionsUsers"
 
+import CurriculumPreview from "@/app/service/CurriculumPreview"
 import ListContactDetail from "@/app/service/ListContactDetail"
 import ListExperience from "@/app/service/ListExperience"
 import ListFormation from "@/app/service/ListFormation"
@@ -53,54 +54,38 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
                 <Button variant="outline" className="mr-6">Aperçu</Button>
               </DialogTrigger>
             </div>
-            <DialogContent className="sm:max-w-[1024px] h-[90vh] overflow-y-auto">
 
+
+            <DialogContent className="sm:max-w-[1024px] h-[90vh] overflow-y-auto">
               <div className="flex flex-row gap-4">
                 <div className="w-1/5">
-
                   <div className="grid gap-4">
                     <ListContactDetail curriculumId={data[0]?.id} />
                   </div>
-
                   <div className="my-2 border border-b-gray-400"></div>
-
                   <div className="grid gap-4">
                     <ListHobby curriculumId={data[0]?.id} />
                   </div>
-
                   <div className="grid gap-4 ">
                     <ListSkill curriculumId={data[0]?.id} />
                   </div>
-
                   <div className="grid gap-4 ">
                     <ListLanguage curriculumId={data[0]?.id} />
                   </div>
-
-
-
                 </div>
 
                 <div className="my-2 border border-b-gray-400 "></div>
-
                 <div className="flex flex-col gap-4 w-4/5">
-
                   <div className="grid gap-4 ">
                     <Motivation curriculumId={data[0]?.id} />
                   </div>
-
                   <div className="grid gap-4 ">
-
                     <ListFormation curriculumId={data[0]?.id} />
                   </div>
-
                   <div className="grid gap-4 ">
                     <ListExperience curriculumId={data[0]?.id} />
                   </div>
-
-
                 </div>
-
-
               </div>
               <div className="flex justify-between">
                 <Button variant="secondary">
@@ -113,45 +98,49 @@ export default async function PageCurriculum({ params }: UpdatePageProps) {
             </DialogContent>
           </Dialog>
 
-          
         </div>
       </div>
-      <Card>
-        <form action={updateCurriculum}>
-          <Input type="hidden" name="id" value={curriculum?.id || ''} />
+      <div className="flex lg:flex-row flex-col gap-x-2 gap-y-5 w-full">
+        <Card className="lg:w-2/5">
+          <form action={updateCurriculum}>
+            <Input type="hidden" name="id" value={curriculum?.id || ''} />
 
-          <CardHeader>
-            <CardTitle>Modifier un curriculum</CardTitle>
-            <CardDescription>Mettez à jour vos informations</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-y-5 w-full">
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label className=" " htmlFor="title">Titre</Label>
-              <Input className=" " defaultValue={curriculum?.title || ''} type="text" name="title" id="title" required />
-            </div>
+            <CardHeader>
+              <CardTitle>Modifier un curriculum</CardTitle>
+              <CardDescription>Mettez à jour vos informations</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-y-5 w-full">
+              <div className="gap-y-2 flex flex-col w-60">
+                <Label className=" " htmlFor="title">Titre</Label>
+                <Input className=" " defaultValue={curriculum?.title || ''} type="text" name="title" id="title" required />
+              </div>
 
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="description">Description</Label>
-              <Textarea defaultValue={curriculum?.description || ''} name="description" id="description" required />
-            </div>
+              <div className="gap-y-2 flex flex-col w-60">
+                <Label htmlFor="description">Description</Label>
+                <Textarea defaultValue={curriculum?.description || ''} name="description" id="description" required />
+              </div>
 
-            <div className="gap-y-2 flex flex-col w-60">
-              <Label htmlFor="completed">En attente || Complet</Label>
-              <Input defaultChecked={curriculum?.completed || false} type="checkbox" name="completed" id="completed" className="w-6 cursor-pointer" />
-            </div>
-          </CardContent>
+              <div className="gap-y-2 flex flex-col w-60">
+                <Label htmlFor="completed">En attente || Complet</Label>
+                <Input defaultChecked={curriculum?.completed || false} type="checkbox" name="completed" id="completed" className="w-6 cursor-pointer" />
+              </div>
+            </CardContent>
 
-          <CardFooter className="flex items-center justify-between">
-            <Button type="button" className="bg-red-500 hover:bg-red-600 text-white">
-              <Link href="/dashboard/curriculums">Annuler</Link>
-            </Button>
+            <CardFooter className="flex items-center justify-between">
+              <Button type="button" className="bg-red-500 hover:bg-red-600 text-white">
+                <Link href="/dashboard/curriculums">Annuler</Link>
+              </Button>
 
-            <Button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white">
-              Modifier le curriculum
-            </Button>
-          </CardFooter>
-        </form>
-      </Card>
+              <Button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white">
+                Modifier le curriculum
+              </Button>
+            </CardFooter>
+          </form>
+        </Card>
+        <Card className="lg:w-3/5">
+          <CurriculumPreview curriculumId={data[0]?.id} />
+        </Card>
+      </div>
     </>
   )
 }

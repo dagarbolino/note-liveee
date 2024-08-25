@@ -10,7 +10,7 @@ export default async function CreateHobbies({ params }: { params: { id: string }
 
 
   return (
-    <div className='flex flex-col gap-y-5'>
+    <div className='flex flex-col gap-y-5 max-w-2xl'>
 
       <div className="mb-6 ml-6 border-l-4 border-orange-500 pl-6">
         <SheetCurriculum curriculumId={params.id} />
